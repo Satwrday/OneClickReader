@@ -57,11 +57,11 @@ def main():
     
     tk.Button(root, text="Read ", 
               command=reader_instance.main_reader_operation, 
-              width=20, bg="green", fg="white").pack(pady=5)
+              width=20, height= 3, bg="green", fg="white").pack(pady=5)
     
     tk.Button(root, text="Stop ", 
               command=reader_instance.stop_reading, 
-              width=20, bg="red", fg="white").pack(pady=5)
+              width=20, height= 3, bg="red", fg="white").pack(pady=5)
 
     root.mainloop()
 
