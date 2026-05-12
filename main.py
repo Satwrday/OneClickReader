@@ -10,7 +10,7 @@ class Reader:
        
         self.process = None
         self.speed = 45
-        self.speed_change_var = 6
+        self.speed_change_var = 4
 
     def _read_task(self, text,speed):
         # Engine must be initialized inside the new process
