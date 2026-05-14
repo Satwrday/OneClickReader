@@ -9,7 +9,7 @@ class Reader:
     def __init__(self):
        
         self.process = None
-        self.speed = 45
+        self.speed = 35
         self.speed_change_var = 4
 
     def _read_task(self, text,speed):
