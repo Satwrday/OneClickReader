@@ -28,7 +28,7 @@ class Reader:
         time.sleep(0.01)  # Give the OS a moment to switch focus
         self.Copy()
         time.sleep(0.01)
-        self.Go_to_prev_window()
+        # self.Go_to_prev_window()
         
 
         text_paceholder = str(pyperclip.paste())
@@ -73,25 +73,25 @@ def main():
     reader_instance = Reader()
     
     root = tk.Tk()
-    root.title("Reader v0.0.2")
-    root.geometry("60x90")
+    root.title("Reader v0.0.5")
+    root.geometry("230x50")
     root.attributes("-topmost", True) # Keep it on top for easier use
 
-    tk.Label(root, text="Reader", pady=10).pack()
+    tk.Label(root, text="Reader", pady=3).pack()
     
     tk.Button(root, text="Read ", 
               command=reader_instance.main_reader_operation, 
-              width=20, height= 3, bg="green", fg="white").pack(pady=5)
+              width=10, height= 3, bg="green", fg="white").pack(side="left")
     
     tk.Button(root, text="+speed ", 
               command=reader_instance.inc_speed, 
-              width=10, height= 2, bg="green", fg="white").pack(pady=5)
+              width=5, height= 2, bg="green", fg="white").pack(side="left")
     tk.Button(root, text="-speed ", 
               command=reader_instance.dec_speed, 
-              width=10, height= 2, bg="green", fg="white").pack(pady=5)
+              width=5, height= 2, bg="green", fg="white").pack(side="left")
     tk.Button(root, text="Stop ", 
-              command=reader_instance.stop_reading, 
-              width=20, height= 3, bg="red", fg="white").pack(pady=5)
+              command=reader_instance.stop_reading,  
+              width=10, height= 3, bg="red", fg="white").pack(side="left")
 
     root.mainloop()
 
