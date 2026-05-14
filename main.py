@@ -83,11 +83,11 @@ def main():
               command=reader_instance.main_reader_operation, 
               width=10, height= 3, bg="green", fg="white").pack(side="left")
     
-    tk.Button(root, text="+speed ", 
-              command=reader_instance.inc_speed, 
-              width=5, height= 2, bg="green", fg="white").pack(side="left")
     tk.Button(root, text="-speed ", 
               command=reader_instance.dec_speed, 
+              width=5, height= 2, bg="green", fg="white").pack(side="left")
+    tk.Button(root, text="+speed ", 
+              command=reader_instance.inc_speed, 
               width=5, height= 2, bg="green", fg="white").pack(side="left")
     tk.Button(root, text="Stop ", 
               command=reader_instance.stop_reading,  
