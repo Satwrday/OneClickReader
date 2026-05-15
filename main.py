@@ -75,7 +75,7 @@ def main():
     
     root = tk.Tk()
     root.attributes("-toolwindow", True)
-    root.title("Reader v0.0.5")
+    root.title("One Click Reader v0.1.01")
     root.geometry("240x50")
     root.attributes("-topmost", True) # Keep it on top for easier use
 
