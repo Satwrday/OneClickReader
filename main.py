@@ -16,7 +16,7 @@ class Reader:
         # Engine must be initialized inside the new process
         engine = pyttsx4.init()
         engine.setProperty('rate', speed * 10)
-        engine.setProperty('volume', 2.0)
+        engine.setProperty('volume', 0.9)
         engine.say(text)
         engine.runAndWait()
 
@@ -65,7 +65,34 @@ class Reader:
     def dec_speed(self):
         self.speed -= self.speed_change_var
         self.main_reader_operation()
+    
+    def image_copy(self):
+        pyautogui.keyDown('win')
+        pyautogui.keyDown('shift')
+        pyautogui.hotkey('t')
+        pyautogui.keyUp('shift')
+        pyautogui.keyUp('win')
         
+    def image_read(self):
+        # # Stop any existing speech before starting new
+        # self.stop_reading()
+
+        # # Switch to previous window, copy, and switch back
+        # self.Go_to_prev_window()
+        # # time.sleep(0.01)  # Give the OS a moment to switch focus
+        # self.Copy()
+        # # time.sleep(0.01)
+        self.Go_to_prev_window()
+        
+
+        text_paceholder = str(pyperclip.paste())
+        text = " ".join(text_paceholder.splitlines())
+        print(f"Reading: {text}")
+
+        if text.strip():
+            # Pass the function and arguments separately              change speed here;;;;;;;;;;;;;
+            self.process = m.Process(target=self._read_task, args=(text, self.speed))
+            self.process.start()
 
 def main():
     # Multiprocessing on Windows requires this inside the entry point
@@ -76,24 +103,30 @@ def main():
     root = tk.Tk()
     root.attributes("-toolwindow", True)
     root.title("One Click Reader v0.1.01")
-    root.geometry("240x50")
+    root.geometry("320x60")
     root.attributes("-topmost", True) # Keep it on top for easier use
 
     tk.Label(root, text="Highlight Text -> Click Read", pady=0.5).pack(side="bottom")
     
-    tk.Button(root, text="Read ", 
+    tk.Button(root, text="t.Read ", 
               command=reader_instance.main_reader_operation, 
               width=10, height= 3, bg="green", fg="white").pack(side="left")
     
-    tk.Button(root, text="-speed ", 
+    tk.Button(root, text="-Speed ", 
               command=reader_instance.dec_speed, 
               width=5, height= 3, bg="green", fg="white").pack(side="left")
-    tk.Button(root, text="+speed ", 
+    tk.Button(root, text="+Speed ", 
               command=reader_instance.inc_speed, 
               width=5, height= 3, bg="green", fg="white").pack(side="left")
+    tk.Button(root, text="i.Copy ", 
+              command=reader_instance.image_copy, 
+              width=4, height= 3, bg="blue", fg="white").pack(side="left")
+    tk.Button(root, text="i.Read ", 
+              command=reader_instance.image_read, 
+              width=4, height= 3, bg="blue", fg="white").pack(side="left")
     tk.Button(root, text="Stop ", 
               command=reader_instance.stop_reading,  
-              width=10, height= 3, bg="red", fg="white").pack(side="left")
+              width=10, height= 3, bg="blue", fg="white").pack(side="left")
 
     root.mainloop()
 
