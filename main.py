@@ -75,7 +75,7 @@ class Reader:
         
     def image_read(self):
         # # Stop any existing speech before starting new
-        # self.stop_reading()
+        self.stop_reading()
 
         # # Switch to previous window, copy, and switch back
         # self.Go_to_prev_window()
