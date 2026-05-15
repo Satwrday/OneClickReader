@@ -16,6 +16,7 @@ class Reader:
         # Engine must be initialized inside the new process
         engine = pyttsx4.init()
         engine.setProperty('rate', speed * 10)
+        engine.setProperty('volume', 2.0)
         engine.say(text)
         engine.runAndWait()
 
@@ -25,9 +26,9 @@ class Reader:
 
         # Switch to previous window, copy, and switch back
         self.Go_to_prev_window()
-        time.sleep(0.01)  # Give the OS a moment to switch focus
+        # time.sleep(0.01)  # Give the OS a moment to switch focus
         self.Copy()
-        time.sleep(0.01)
+        # time.sleep(0.01)
         # self.Go_to_prev_window()
         
 
@@ -73,11 +74,12 @@ def main():
     reader_instance = Reader()
     
     root = tk.Tk()
+    root.attributes("-toolwindow", True)
     root.title("Reader v0.0.5")
-    root.geometry("230x50")
+    root.geometry("240x50")
     root.attributes("-topmost", True) # Keep it on top for easier use
 
-    tk.Label(root, text="Reader", pady=3).pack()
+    tk.Label(root, text="Highlight Text -> Click Read", pady=0.5).pack(side="bottom")
     
     tk.Button(root, text="Read ", 
               command=reader_instance.main_reader_operation, 
@@ -85,10 +87,10 @@ def main():
     
     tk.Button(root, text="-speed ", 
               command=reader_instance.dec_speed, 
-              width=5, height= 2, bg="green", fg="white").pack(side="left")
+              width=5, height= 3, bg="green", fg="white").pack(side="left")
     tk.Button(root, text="+speed ", 
               command=reader_instance.inc_speed, 
-              width=5, height= 2, bg="green", fg="white").pack(side="left")
+              width=5, height= 3, bg="green", fg="white").pack(side="left")
     tk.Button(root, text="Stop ", 
               command=reader_instance.stop_reading,  
               width=10, height= 3, bg="red", fg="white").pack(side="left")
