@@ -103,12 +103,10 @@ def main():
     root = tk.Tk()
     root.attributes("-toolwindow", True)
     root.title("One Click Reader v0.1.01")
-    root.geometry("320x60")
+    root.geometry("320x40")
     root.attributes("-topmost", True) # Keep it on top for easier use
 
-   """
-   tk.Label(root, text="Highlight Text -> Click Read", pady=0.5).pack(side="bottom")
-   """
+    # tk.Label(root, text="Highlight Text -> Click Read", pady=0.5).pack(side="bottom")
     
     tk.Button(root, text="t.Read ", 
               command=reader_instance.main_reader_operation, 
