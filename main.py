@@ -106,7 +106,9 @@ def main():
     root.geometry("320x60")
     root.attributes("-topmost", True) # Keep it on top for easier use
 
-    tk.Label(root, text="Highlight Text -> Click Read", pady=0.5).pack(side="bottom")
+   """
+   tk.Label(root, text="Highlight Text -> Click Read", pady=0.5).pack(side="bottom")
+   """
     
     tk.Button(root, text="t.Read ", 
               command=reader_instance.main_reader_operation, 
@@ -115,6 +117,7 @@ def main():
     tk.Button(root, text="-Speed ", 
               command=reader_instance.dec_speed, 
               width=5, height= 3, bg="green", fg="white").pack(side="left")
+
     tk.Button(root, text="+Speed ", 
               command=reader_instance.inc_speed, 
               width=5, height= 3, bg="green", fg="white").pack(side="left")
