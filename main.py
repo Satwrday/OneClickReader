@@ -104,6 +104,7 @@ def main():
     #root.attributes("-toolwindow", True)
     root.title("One Click Reader v0.1.01")
     root.geometry("320x30")
+
     
     #vim mode edits
     #root.attributes("-topmost", True) # Keep it on top for easier use
@@ -113,6 +114,9 @@ def main():
     tk.Button(root, text="t.Read ", 
               command=reader_instance.main_reader_operation, 
               width=10, height= 3, bg="green", fg="white").pack(side="left")
+    
+    root.bind_all("r", lambda e : reader_instance.main_reader_operation())
+    
     
     tk.Button(root, text="-Speed ", 
               command=reader_instance.dec_speed, 
@@ -130,6 +134,8 @@ def main():
     tk.Button(root, text="Stop ", 
               command=reader_instance.stop_reading,  
               width=10, height= 3, bg="blue", fg="white").pack(side="left")
+    
+    root.bind_all("x", lambda e : reader_instance.stop_reading())
 
     root.mainloop()
 
