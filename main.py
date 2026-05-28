@@ -29,7 +29,7 @@ class Reader:
         # time.sleep(0.01)  # Give the OS a moment to switch focus
         self.Copy()
         # time.sleep(0.01)
-        # self.Go_to_prev_window()
+        #self.Go_to_prev_window()
         
 
         text_paceholder = str(pyperclip.paste())
@@ -102,7 +102,7 @@ def main():
     
     root = tk.Tk()
     #root.attributes("-toolwindow", True)
-    root.title("One Click Reader v0.1.01")
+    root.title("One Click Reader v0.1.01 Q-+iqx ")
     root.geometry("320x30")
 
     
@@ -116,19 +116,26 @@ def main():
               width=10, height= 3, bg="green", fg="white").pack(side="left")
     
     
-    root.bind_all("q", lambda e : reader_instance.main_reader_operation())
-    root.bind_all("Q", lambda e : reader_instance.image_read())
+    root.bind_all("Q", lambda e : reader_instance.main_reader_operation())
+    root.bind_all("q", lambda e : reader_instance.image_read())
     
     tk.Button(root, text="-Speed ", 
               command=reader_instance.dec_speed, 
               width=5, height= 3, bg="green", fg="white").pack(side="left")
 
+    root.bind_all("-", lambda e : reader_instance.main_reader_operation())
+
     tk.Button(root, text="+Speed ", 
               command=reader_instance.inc_speed, 
               width=5, height= 3, bg="green", fg="white").pack(side="left")
+    
+
+    root.bind_all("+", lambda e : reader_instance.main_reader_operation())
+
     tk.Button(root, text="i.Copy ", 
               command=reader_instance.image_copy, 
               width=4, height= 3, bg="blue", fg="white").pack(side="left")
+    root.bind_all("i", lambda e : reader_instance.main_reader_operation())
     tk.Button(root, text="i.Read ", 
               command=reader_instance.image_read, 
               width=4, height= 3, bg="blue", fg="white").pack(side="left")
