@@ -101,10 +101,12 @@ def main():
     reader_instance = Reader()
     
     root = tk.Tk()
-    root.attributes("-toolwindow", True)
+    #root.attributes("-toolwindow", True)
     root.title("One Click Reader v0.1.01")
-    root.geometry("320x40")
-    root.attributes("-topmost", True) # Keep it on top for easier use
+    root.geometry("320x30")
+    
+    #vim mode edits
+    #root.attributes("-topmost", True) # Keep it on top for easier use
 
     # tk.Label(root, text="Highlight Text -> Click Read", pady=0.5).pack(side="bottom")
     
