@@ -123,19 +123,19 @@ def main():
               command=reader_instance.dec_speed, 
               width=5, height= 3, bg="green", fg="white").pack(side="left")
 
-    root.bind_all("-", lambda e : reader_instance.main_reader_operation())
+    root.bind_all("-", lambda e : reader_instance.dec_speed())
 
     tk.Button(root, text="+Speed ", 
               command=reader_instance.inc_speed, 
               width=5, height= 3, bg="green", fg="white").pack(side="left")
     
 
-    root.bind_all("+", lambda e : reader_instance.main_reader_operation())
+    root.bind_all("+", lambda e : reader_instance.inc_speed())
 
     tk.Button(root, text="i.Copy ", 
               command=reader_instance.image_copy, 
               width=4, height= 3, bg="blue", fg="white").pack(side="left")
-    root.bind_all("i", lambda e : reader_instance.main_reader_operation())
+    root.bind_all("i", lambda e : reader_instance.image_copy())
     tk.Button(root, text="i.Read ", 
               command=reader_instance.image_read, 
               width=4, height= 3, bg="blue", fg="white").pack(side="left")
