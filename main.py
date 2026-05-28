@@ -107,7 +107,7 @@ def main():
 
     
     #vim mode edits
-    #root.attributes("-topmost", True) # Keep it on top for easier use
+    root.attributes("-topmost", True) # Keep it on top for easier use
 
     # tk.Label(root, text="Highlight Text -> Click Read", pady=0.5).pack(side="bottom")
     
@@ -115,8 +115,9 @@ def main():
               command=reader_instance.main_reader_operation, 
               width=10, height= 3, bg="green", fg="white").pack(side="left")
     
-    root.bind_all("r", lambda e : reader_instance.main_reader_operation())
     
+    root.bind_all("q", lambda e : reader_instance.main_reader_operation())
+    root.bind_all("Q", lambda e : reader_instance.image_read())
     
     tk.Button(root, text="-Speed ", 
               command=reader_instance.dec_speed, 
