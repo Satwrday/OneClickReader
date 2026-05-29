@@ -82,7 +82,7 @@ class Reader:
         # # time.sleep(0.01)  # Give the OS a moment to switch focus
         # self.Copy()
         # # time.sleep(0.01)
-        self.Go_to_prev_window()
+        #self.Go_to_prev_window()
         
 
         text_paceholder = str(pyperclip.paste())
