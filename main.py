@@ -102,7 +102,7 @@ def main():
     
     root = tk.Tk()
     #root.attributes("-toolwindow", True)
-    root.title("One Click Reader v0.1.01 Q-+iqx ")
+    root.title("One Click Reader v0.1.01 w-+iqx ")
     root.geometry("320x30")
 
     
@@ -116,7 +116,7 @@ def main():
               width=10, height= 3, bg="green", fg="white").pack(side="left")
     
     
-    root.bind_all("Q", lambda e : reader_instance.main_reader_operation())
+    root.bind_all("w", lambda e : reader_instance.main_reader_operation())
     root.bind_all("q", lambda e : reader_instance.image_read())
     
     tk.Button(root, text="-Speed ", 
