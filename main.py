@@ -4,6 +4,7 @@ import pyttsx4
 import tkinter as tk
 import multiprocessing as m
 import time
+
 class Reader:
     
     def __init__(self):
@@ -34,7 +35,7 @@ class Reader:
 
         text_paceholder = str(pyperclip.paste())
         text = " ".join(text_paceholder.splitlines())
-        print(f"Reading: {text}")
+        #print(f"Reading: {text}")
 
         if text.strip():
             # Pass the function and arguments separately              change speed here;;;;;;;;;;;;;
@@ -55,7 +56,7 @@ class Reader:
         if self.process and self.process.is_alive():
             self.process.terminate()
             self.process.join()
-            print("Reading stopped.")
+            #print("Reading stopped.")
             
             
     def inc_speed(self):
@@ -87,7 +88,7 @@ class Reader:
 
         text_paceholder = str(pyperclip.paste())
         text = " ".join(text_paceholder.splitlines())
-        print(f"Reading: {text}")
+        #print(f"Reading: {text}")
 
         if text.strip():
             # Pass the function and arguments separately              change speed here;;;;;;;;;;;;;
@@ -102,15 +103,12 @@ def main():
     
     root = tk.Tk()
     #root.attributes("-toolwindow", True)
-    root.title("One Click Reader v0.1.01 w-+iqx ")
+    root.title("One Click Reader v0.1.01 w-+eqx ")
     root.geometry("320x30")
 
     
-    #vim mode edits
     root.attributes("-topmost", True) # Keep it on top for easier use
 
-    # tk.Label(root, text="Highlight Text -> Click Read", pady=0.5).pack(side="bottom")
-    
     tk.Button(root, text="t.Read ", 
               command=reader_instance.main_reader_operation, 
               width=10, height= 3, bg="green", fg="white").pack(side="left")
@@ -135,7 +133,7 @@ def main():
     tk.Button(root, text="i.Copy ", 
               command=reader_instance.image_copy, 
               width=4, height= 3, bg="blue", fg="white").pack(side="left")
-    root.bind_all("i", lambda e : reader_instance.image_copy())
+    root.bind_all("e", lambda e : reader_instance.image_copy())
     tk.Button(root, text="i.Read ", 
               command=reader_instance.image_read, 
               width=4, height= 3, bg="blue", fg="white").pack(side="left")
