@@ -5,6 +5,7 @@ import tkinter as tk
 import multiprocessing as m
 import time
 
+#stable version 1
 class Reader:
     
     def __init__(self):
@@ -103,7 +104,7 @@ def main():
     
     root = tk.Tk()
     #root.attributes("-toolwindow", True)
-    root.title("One Click Reader v0.1.01 w-+eqx ")
+    root.title("One Click Reader v1.0.01 w-+eqx ")
     root.geometry("320x30")
 
     
