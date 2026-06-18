@@ -27,6 +27,7 @@ class Reader:
 
     def read_appended_text(self):
         #print(f"Reading: {text}")
+        self.stop_reading()
 
         if self.appended_text != "s":
             # Pass the function and arguments separately              change speed here;;;;;;;;;;;;;
