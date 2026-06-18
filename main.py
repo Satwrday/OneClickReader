@@ -13,6 +13,27 @@ class Reader:
         self.process = None
         self.speed = 35
         self.speed_change_var = 4
+        self.appended_text = ""
+
+    def reset_appended_text(self):
+        self.appended_text = ""
+        print(self.appended_text)
+
+    def append_to_appended_text(self):
+        text_paceholder = str(pyperclip.paste())
+        text = " ".join(text_paceholder.splitlines())
+        self.appended_text = str( self.appended_text+ ". " + text)
+        print(self.appended_text)
+
+    def read_appended_text(self):
+        #print(f"Reading: {text}")
+
+        if self.appended_text != "s":
+            # Pass the function and arguments separately              change speed here;;;;;;;;;;;;;
+            self.process = m.Process(target=self._read_task, args=(self.appended_text, self.speed))
+            self.process.start()
+
+       
 
     def _read_task(self, text,speed):
         # Engine must be initialized inside the new process
@@ -105,11 +126,22 @@ def main():
     root = tk.Tk()
     #root.attributes("-toolwindow", True)
     root.title("One Click Reader v1.0.01 w-+eqx ")
-    root.geometry("320x30")
+    root.geometry("600x30")
 
     
     root.attributes("-topmost", True) # Keep it on top for easier use
+    #append long text 
+    tk.Button(root, text="reset text", 
+              command= reader_instance.reset_appended_text , 
+              width=10, height= 3, bg="orange", fg="white").pack(side="left")
+    tk.Button(root, text="append text", 
+              command= reader_instance.append_to_appended_text, 
+              width=10, height= 3, bg="orange", fg="white").pack(side="left")
+    tk.Button(root, text="read append", 
+              command= reader_instance.read_appended_text, 
+              width=10, height= 3, bg="orange", fg="white").pack(side="left")
 
+    #before change
     tk.Button(root, text="t.Read ", 
               command=reader_instance.main_reader_operation, 
               width=10, height= 3, bg="green", fg="white").pack(side="left")
